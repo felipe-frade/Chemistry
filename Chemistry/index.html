@@ -6,9 +6,12 @@
 </head>
 <body>
 <div class="geral" style="flex-direction: column;">
+	<h2 id="numero-atomico-tilte" class="numero-atomico-tilte">type the atomic number here and press enter</h2>
 	<input type="number" name="numero" class="numero-atomico" id="atomico" min="1" max="118">
 	<div class="atomo" id="atomo">
-		<span class="camadas" id="camada1"></span>
+		<span class="camadas" id="camada1">
+			<span class="numero numero1" style="transform: rotate(0deg);"></span>
+		</span>
 		<span class="camadas" id="camada2"></span>
 		<span class="camadas" id="camada3"></span>
 		<span class="camadas" id="camada4"></span>
@@ -16,7 +19,11 @@
 		<span class="camadas" id="camada6"></span>
 		<span class="camadas" id="camada7"></span>
 	</div>
-	<div class="simbolo-atomico" id="prefixo"></div>
+	<div class="simbolo-atomico" id="prefixo">
+		<div id="simboloZ">
+			<span>H</span>
+		</div>
+	</div>
 </div>
 <script type="text/javascript" src="assets/js/script.js"></script>
 </body>

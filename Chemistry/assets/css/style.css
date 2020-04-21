@@ -368,6 +368,14 @@ body {
 .simbolo-atomico {
 	position: absolute;
 }
+.numero-atomico-tilte{
+	z-index: 6;
+	pointer-events: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.numero-atomico-tilte,
 .numero-atomico {
 	width: 500px;
     height: 40px !important;
@@ -379,8 +387,9 @@ body {
     font-size: 20px;
     height: 20px;
     position: absolute;
-    top: 0px;
+    top: 20px;
 }
+.numero-atomico
 .top-40 {
 	top: 40px !important;
 }
@@ -393,8 +402,8 @@ body {
 	transition: 2s;
 }
 .simbolo-atomico div {
-	width: 30px;
-    height: 30px;
+	width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: #fff;
     display: flex;
@@ -402,6 +411,7 @@ body {
     align-items: center;
     box-shadow: 8px 8px 5px rgba(0,0,0,0.3);
     position: relative;
+    font-weight: bold;
 }
 .simbolo-atomico div span {z-index: 2;}
 .simbolo-atomico div:before {
@@ -449,4 +459,5 @@ span#camada7 {width: 400px;}
 	height: 9px;
 	border-radius: 50%;
 	background-color: #fff;
+	box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
 }

@@ -2,17 +2,23 @@ var angulo;
 var simbolo;
 
 document.getElementById("atomico").onchange = function () {
-	for (var i = 1; i < 8; i++) { document.getElementById("camada" + i).innerHTML = ''; }
-	elemento(this.value);
-	simbolo = elementoExtra(this.value);
-	let div = document.createElement("div");
-	let span = document.createElement("span");
-	div.setAttribute('id', 'simboloZ')
-	span.innerHTML = simbolo;
-	div.appendChild(span);
-	document.getElementById("prefixo").innerHTML = '';
-	document.getElementById("prefixo").appendChild(div);
+	if(this.value > 0 && this.value < 119){
+		for (var i = 1; i < 8; i++) { document.getElementById("camada" + i).innerHTML = ''; }
+		elemento(this.value);
+		simbolo = elementoExtra(this.value);
+		let div = document.createElement("div");
+		let span = document.createElement("span");
+		div.setAttribute('id', 'simboloZ')
+		span.innerHTML = simbolo;
+		div.appendChild(span);
+		document.getElementById("prefixo").innerHTML = '';
+		document.getElementById("prefixo").appendChild(div);
+	}
 };
+
+document.getElementById("atomico").onclick = function () {
+	document.getElementById("numero-atomico-tilte").style.zIndex = 0
+}
 
 function elemento(numeroZ) {
 	var atomico = 1;
@@ -24,45 +30,52 @@ function elemento(numeroZ) {
 	var camada6 = 0;
 	var camada7 = 0;
 	while (atomico <= numeroZ) {
-		if ((atomico > 0) && (atomico <= 2)) {
+		if (
+			(atomico > 0) && (atomico <= 2)
+		) {
 			camada1++;
-		} else if ((atomico > 2) && (atomico <= 10)) {
+		} else if (
+			(atomico > 2) && (atomico <= 10)
+		) {
 			camada2++;
-		} else if ((atomico > 10) && (atomico <= 18)) {
+		} else if (
+			(atomico > 10) && (atomico <= 18) ||
+			(atomico > 20) && (atomico <= 30)
+		) {
 			camada3++;
-		} else if ((atomico > 18) && (atomico <= 20)) {
+		} else if (
+			(atomico > 18) && (atomico <= 20) ||
+			(atomico > 30) && (atomico <= 36) ||
+			(atomico > 38) && (atomico <= 48)
+		) {
 			camada4++;
-		} else if ((atomico > 20) && (atomico <= 30)) {
-			camada3++;
-		} else if ((atomico > 30) && (atomico <= 36)) {
-			camada4++;
-		} else if ((atomico > 36) && (atomico <= 38)) {
+		} else if (
+			(atomico > 36) && (atomico <= 38) ||
+			(atomico > 48) && (atomico <= 54) ||
+			(atomico > 72) && (atomico <= 80)
+		) {
 			camada5++;
-		} else if ((atomico > 38) && (atomico <= 48)) {
-			camada4++;
-		} else if ((atomico > 48) && (atomico <= 54)) {
-			camada5++;
-		} else if ((atomico > 54) && (atomico <= 56)) {
+		}  else if (
+			(atomico > 54) && (atomico <= 56) ||
+			(atomico > 80) && (atomico <= 86) ||
+			(atomico > 104) && (atomico <= 112)
+		) {
 			camada6++;
 		} else if ((atomico > 56) && (atomico <= 71)) {
+			// nothing
 		} else if (atomico == 72) {
 			camada4 += 14;
 			camada5 += 2;
-		} else if ((atomico > 72) && (atomico <= 80)) {
-			camada5++;
-		} else if ((atomico > 80) && (atomico <= 86)) {
-			camada6++;
-		} else if ((atomico > 86) && (atomico <= 88)) {
+		}  else if ((atomico > 86) && (atomico <= 88)) {
 			camada7++;
 		} else if ((atomico > 88) && (atomico <= 103)) {
+			// nothing
 		} else if (atomico == 104) {
 			camada5 += 14;
 			camada6 += 2;
-		} else if ((atomico > 104) && (atomico <= 112)) {
-			camada6++;
-		} else if ((atomico > 112) && (atomico <= 118)) {
+		}  else if ((atomico > 112) && (atomico <= 118)) {
 			camada7++;
-		} else { }
+		}
 		atomico++;
 	};
 	camada('camada1', camada1);
@@ -75,6 +88,7 @@ function elemento(numeroZ) {
 }
 function camada(camada, numero) {
 	if (numero > 0) {
+
 		var eletrons = 360 / numero;
 		for (var i = 1, angulo = 0; i < numero + 1; i++, angulo += eletrons) {
 			let numero = document.createElement('span');
